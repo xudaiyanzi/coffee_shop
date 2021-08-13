@@ -30,7 +30,7 @@ CORS(app)
 '''
 
 @app.route('/drinks', methods=['GET'])
-@requires_auth('get:drinks') # important to check auth before calling any methods
+# @requires_auth('get:drinks') # important to check auth before calling any methods
 def get_drinks():
 
     try:

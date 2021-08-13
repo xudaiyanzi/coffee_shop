@@ -54,11 +54,12 @@ def get_drinks():
 # 
 @app.route('/drinks-detail', methods=['GET'])
 @requires_auth('get:drinks-detail')
-def get_drinks_detail():
+def get_drinks_detail(jwt):
+    print(jwt)
     try:
         drinks = Drink.query.all()
     except:
-        abort(400)
+        abort(401)
     return jsonify({
         'success': True,
         'drinks': [drink.long() for drink in drinks]
@@ -75,7 +76,7 @@ def get_drinks_detail():
 '''
 @app.route('/drinks', methods=['POST'])
 @requires_auth('post:drinks')
-def create_drinks():
+def create_drinks(jwt):
 
     body = request.get_json()
 
@@ -109,7 +110,7 @@ def create_drinks():
 '''
 @app.route('/drinks/<int:drink_id>', methods=['PATCH'])
 @requires_auth('patch:drinks')
-def update_drinks(drink_id):
+def update_drinks(jwt, drink_id):
     body = request.get_json()
     try:
         drink = Drink.query.filter(id==drink_id).one_or_none()
@@ -143,7 +144,7 @@ def update_drinks(drink_id):
 '''
 @app.route('/drinks/<int:drink_id>', methods=['DELETE'])
 @requires_auth('delete:drinks')
-def delete_drinks(drink_id):
+def delete_drinks(jwt, drink_id):
     try:
         drink = Drink.query.filter(id == drink_id).one_or_none()
         if drink is None:
@@ -188,6 +189,22 @@ def bad_request(error):
                     }), 404
 
 '''
+@app.errorhandler(401)
+def not_found(error):
+        return jsonify({
+          'success': False,
+          'message': 'wrong crediential or unclear authorization',
+          'error': 401
+          }), 401
+
+@app.errorhandler(403)
+def not_found(error):
+        return jsonify({
+          'success': False,
+          'message': 'not authorized',
+          'error': 403
+          }), 403
+
 @app.errorhandler(404)
 def not_found(error):
         return jsonify({
@@ -203,7 +220,7 @@ def not_allowed(error):
           'message': 'method is not allowed',
           'error': 405
         }), 405
-        
+
 '''
 @TODO implement error handler for 404
     error handler should conform to general task above

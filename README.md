@@ -37,9 +37,20 @@ token:
 
 ### Backend
 
-The `./backend` directory contains a Flask server and SQLAlchemy module. You will need to complete the required endpoints, configure, and integrate Auth0 for authentication.
+The `./backend` directory contains a Flask server and SQLAlchemy module. [View the README.md within ./backend for more details.](./backend/README.md)
 
-[View the README.md within ./backend for more details.](./backend/README.md)
+To run this app:
+
+(1)uncommented the line "db_drop_and_create_all()" on line 25 in (/backend/src/api.py)
+
+(2) Terminal cd to "/backend/src" and run
+
+    export FLASK_APP=api.py
+    flask run --reload
+
+(3) commented the line "db_drop_and_create_all()" on line 25 in (/backend/src/api.py) before run any test in postman
+
+
 
 ### Frontend
 

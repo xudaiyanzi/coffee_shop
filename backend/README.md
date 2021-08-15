@@ -52,12 +52,15 @@ The `--reload` flag will detect file changes and restart the server automaticall
 
 1. Create a new Auth0 Account
 2. Select a unique tenant domain
+
    for example: 'yxfs.us.auth0.com'
 
 3. Create a new, single page web application
+
    for example: 'coffee_shop'
 
 4. Create a new API
+
    for example: 'drinks'
 
    - in API Settings:
@@ -86,7 +89,7 @@ The `--reload` flag will detect file changes and restart the server automaticall
 ### Implement The Server
 
 1. `./src/auth/auth.py`
-   
+
 
 
 2. `./src/api.py`

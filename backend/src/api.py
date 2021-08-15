@@ -34,7 +34,7 @@ def index():
         or appropriate status code indicating reason for failure
 '''
 # 
-@app.route('/drinks', methods=['GET'])
+@app.route('/drinks', methods=['GET'], endpoint='get_drinks_short')
 def get_drinks():
      
     try:
@@ -55,7 +55,7 @@ def get_drinks():
         or appropriate status code indicating reason for failure
 '''
 # 
-@app.route('/drinks-detail', methods=['GET'])
+@app.route('/drinks-detail', methods=['GET'], endpoint='get_drinks_long')
 @requires_auth('get:drinks-detail')
 def get_drinks_detail(jwt):
     
@@ -77,7 +77,7 @@ def get_drinks_detail(jwt):
     returns status code 200 and json {"success": True, "drinks": drink} where drink an array containing only the newly created drink
         or appropriate status code indicating reason for failure
 '''
-@app.route('/drinks', methods=['POST'])
+@app.route('/drinks', methods=['POST'], endpoint='post_drinks')
 @requires_auth('post:drinks')
 def create_drinks(jwt):
 
@@ -120,7 +120,7 @@ def create_drinks(jwt):
     returns status code 200 and json {"success": True, "drinks": drink} where drink an array containing only the updated drink
         or appropriate status code indicating reason for failure
 '''
-@app.route('/drinks/<int:id>', methods=['PATCH'])
+@app.route('/drinks/<int:id>', methods=['PATCH'], endpoint='patch_drinks')
 @requires_auth('patch:drinks')
 def update_drinks(jwt, id):
 
@@ -162,7 +162,7 @@ def update_drinks(jwt, id):
     returns status code 200 and json {"success": True, "delete": id} where id is the id of the deleted record
         or appropriate status code indicating reason for failure
 '''
-@app.route('/drinks/<int:id>', methods=['DELETE'])
+@app.route('/drinks/<int:id>', methods=['DELETE'], endpoint='delete_drinks')
 @requires_auth('delete:drinks')
 def delete_drinks(jwt, id):
 

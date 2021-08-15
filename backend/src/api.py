@@ -81,20 +81,20 @@ def get_drinks_detail(jwt):
 @requires_auth('post:drinks')
 def create_drinks(jwt):
 
+    # data = request.get_json()
+    # try:
+    #     title = data['title']
+    #     recipe = json.dumps(data['recipe']) 
+
     # The request should be in the format of:
-    # data = dict(request.form or request.json or request.data)
-    data = request.get_json()
-
+    data = dict(request.form or request.json or request.data)
     try:
-        # title = data.get('title')
-        title = data['title']
-
-        # if type(data.get('recipe')) == str:
-        #     recipe = data.get('recipe')
-        # else:
-        #     recipe = json.dumps(data.get('recipe'))
-        recipe = json.dumps(data['recipe'])
-
+        title = data.get('title')
+        if type(data.get('recipe')) == str:
+            recipe = data.get('recipe')
+        else:
+            recipe = json.dumps(data.get('recipe'))
+        
     except:
         abort(400)
 

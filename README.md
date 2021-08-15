@@ -11,20 +11,33 @@ You have been called on to demonstrate your newly learned skills to create a ful
 3. Allow the shop baristas to see the recipe information.
 4. Allow the shop managers to create new drinks and edit existing drinks.
 
-## Tasks
+For this project, I have the url configuration:
 
-There are `@TODO` comments throughout the project. We recommend tackling the sections in order. Start by reading the READMEs in:
+AUTH0_DOMAIN = 'yxfs.us.auth0.com'
+ALGORITHMS = ['RS256']
+API_AUDIENCE = 'drinks'
 
-1. [`./backend/`](./backend/README.md)
-2. [`./frontend/`](./frontend/README.md)
+url: https://yxfs.us.auth0.com/authorize?audience=drinks&response_type=token&client_id=JBb4EvqoD56og5GPs2I1f42FyPniQmHY&redirect_uri=https://127.0.0.1:8080/login-results
 
-## About the Stack
+Two dummy account:
 
-We started the full stack application for you. It is designed with some key functional areas:
+(1)Barista
+User: barista@udacity.com
+Password: Udacity123*
+
+token:
+eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InBTSm12c19JSF94ZlhFeUhXREVmOSJ9.eyJpc3MiOiJodHRwczovL3l4ZnMudXMuYXV0aDAuY29tLyIsInN1YiI6ImF1dGgwfDYxMTk2ZTc5MjAxYzJlMDA2OTg1ODY2ZSIsImF1ZCI6ImRyaW5rcyIsImlhdCI6MTYyOTA1NzE2OCwiZXhwIjoxNjI5MDY0MzY4LCJhenAiOiJKQmI0RXZxb0Q1Nm9nNUdQczJJMWY0MkZ5UG5pUW1IWSIsInNjb3BlIjoiIiwicGVybWlzc2lvbnMiOlsiZ2V0OmRyaW5rcy1kZXRhaWwiXX0.JYXFmahdmBVN0C2j8GT15iIAcrX4Y3MgoFrEXj-u0VM3YaBtHDFUXBWAnAiCdqflWCYmypXyn3MlHRy-8j5dR37W_hTGrpbctzoCwVuIbuVMMCddGiEoLGulslniXKXUKhvjM0H2lLq4N8WvMgNM_QufmNzY59cdBufvyCY1Ks4Z4b4KubvH3Exau0Ba7sMpMplStRLzpz6zlzoprAxbmeLXhY_pHur5MZv99T3mFic-cYdr4qPOrylqaDtaxR1CUL9CdJ1TLejdHzHDElcZbsohozzULdWXHZE4NOdIdhUH-geAXa8fwGc8fbI5GWHAhhL0Tun0AUSpUTuqZ4tESQ
+
+(2) manageer:
+User: coffee_manager@udacity.com
+Password: Udacity123*
+token:
+
+ eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InBTSm12c19JSF94ZlhFeUhXREVmOSJ9.eyJpc3MiOiJodHRwczovL3l4ZnMudXMuYXV0aDAuY29tLyIsInN1YiI6ImF1dGgwfDYxMTk2ZTUzYmYwZGI5MDA2OTdmMjg4ZiIsImF1ZCI6ImRyaW5rcyIsImlhdCI6MTYyOTA1Njk3MCwiZXhwIjoxNjI5MDY0MTcwLCJhenAiOiJKQmI0RXZxb0Q1Nm9nNUdQczJJMWY0MkZ5UG5pUW1IWSIsInNjb3BlIjoiIiwicGVybWlzc2lvbnMiOlsiZGVsZXRlOmRyaW5rcyIsImdldDpkcmlua3MtZGV0YWlsIiwicGF0Y2g6ZHJpbmtzIiwicG9zdDpkcmlua3MiXX0.CJkIU6vlR8W3VuEZs9CSeYiB2tsGzMcil_d9MG2MlcgiDTwoeCR3HmpsmpB3S4423jIjK-w2jISnUho4c9eqdg4tac0YLxvQPnINV9pdRnm9YmaeQLgM0daEOwOeHMJgopTwq2oXkCnfP7a9hPcwxsJQwZ22wRPzPyjBzlIyHsoL7W0KlPSL1guVIJHJ13F_nY7KkTsWHp2KXIT-7Z6vn3pFuMsojNiCJtKtGeRi2EFvMiP43MCFv1PiFQo4u7K17Xd4oTmRKQ_77cC8d4JZCRgxWOL9lg39k7IB1vb-kxhsZITjQEYE1xtqpQg9cDJUzmIMO01Ek5mH50cWIz3Lpw
 
 ### Backend
 
-The `./backend` directory contains a partially completed Flask server with a pre-written SQLAlchemy module to simplify your data needs. You will need to complete the required endpoints, configure, and integrate Auth0 for authentication.
+The `./backend` directory contains a Flask server and SQLAlchemy module. You will need to complete the required endpoints, configure, and integrate Auth0 for authentication.
 
 [View the README.md within ./backend for more details.](./backend/README.md)
 
